@@ -59,3 +59,8 @@ typings/
 
 # next.js build output
 .next
+
+# serveless cache and config
+.serverless/
+serverless.yml
+
