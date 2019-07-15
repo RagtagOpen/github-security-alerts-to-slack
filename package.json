@@ -1,0 +1,29 @@
+{
+  "name": "github-security-alerts-to-slack",
+  "version": "1.0.0",
+  "description": "Webhook receiver for GitHub security alerts that sends a message to Slack",
+  "main": "handler.js",
+  "scripts": {
+    "test": "jest --coverage"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ragtagopen/github-security-alerts-to-slack.git"
+  },
+  "author": "Dan Ryan",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ragtagopen/github-security-alerts-to-slack/issues"
+  },
+  "homepage": "https://github.com/ragtagopen/github-security-alerts-to-slack#readme",
+  "dependencies": {
+    "@sentry/node": "^5.1.0",
+    "axios": "^0.19.0",
+    "serverless": "^1.47.0"
+  },
+  "devDependencies": {
+    "dotenv": "^8.0.0",
+    "jest": "^24.8.0",
+    "serverless-offline": "^5.7.3"
+  }
+}
