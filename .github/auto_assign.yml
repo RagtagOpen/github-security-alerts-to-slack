@@ -1,0 +1,7 @@
+addReviewers: true
+addAssignees: false
+reviewers:
+  - jillh510
+  - dryan
+skipKeywords:
+  - wip
