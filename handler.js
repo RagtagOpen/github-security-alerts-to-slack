@@ -23,7 +23,6 @@ module.exports.signString = signString;
 module.exports.klaxon = async (event, context, callback) => {
   const SLACK_WEBHOOK_URL = process.env.SLACK_WEBHOOK_URL;
   const GITHUB_VERIFICATION_TOKEN = process.env.GITHUB_VERIFICATION_TOKEN;
-  console.log("token", GITHUB_VERIFICATION_TOKEN);
 
   if (typeof GITHUB_VERIFICATION_TOKEN !== "string") {
     return callback(null, {
@@ -55,12 +54,6 @@ module.exports.klaxon = async (event, context, callback) => {
   }
 
   const signatureHash = signature.split("=").shift();
-  console.log("signatureHash", signatureHash);
-  console.log(
-    "expected",
-    signString(GITHUB_VERIFICATION_TOKEN, event.body, signatureHash)
-  );
-  console.log("got", signature);
 
   if (
     signString(GITHUB_VERIFICATION_TOKEN, event.body, signatureHash) !==
@@ -97,15 +90,6 @@ module.exports.klaxon = async (event, context, callback) => {
       body: "X-GitHub-Delivery header not found"
     });
   }
-
-  /* eslint-disable */
-  // console.log("-".repeat(20));
-  // console.log(
-  //   `X-GitHub-Event ${headers["X-GitHub-Event"]} with action: ${action}`
-  // );
-  // console.log("Payload", event.body);
-  // console.log("-".repeat(20));
-  /* eslint-enable */
 
   const slackColors = { create: "danger", dismiss: "warning", resolve: "good" };
   const slackVerbs = {
