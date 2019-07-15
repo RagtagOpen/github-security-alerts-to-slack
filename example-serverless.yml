@@ -1,0 +1,20 @@
+service: github-security-alerts-to-slack
+plugins:
+  - serverless-offline
+provider:
+  name: aws
+  runtime: nodejs10.x
+  region: us-east-1
+  stage: prod
+functions:
+  klaxon:
+    handler: handler.klaxon
+    events:
+      - http:
+          path: /
+          method: post
+    environment:
+      SLACK_WEBHOOK_URL: ${ssm:SLACK_WEBHOOK_URL~true}
+      # SLACK_CHANNEL_ID: ''  # used to override the webhook's default channel
+      GITHUB_VERIFICATION_TOKEN: ${ssm:GITHUB_VERIFICATION_TOKEN~true}
+      SENTRY_DSN: ${ssm:SENTRY_DSN~true}
