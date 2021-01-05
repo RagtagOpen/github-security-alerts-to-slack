@@ -18,7 +18,7 @@
   "homepage": "https://github.com/ragtagopen/github-security-alerts-to-slack#readme",
   "dependencies": {
     "@sentry/node": "^5.1.0",
-    "axios": "^0.19.0",
+    "axios": "^0.21.1",
     "serverless": "^1.47.0"
   },
   "devDependencies": {
